@@ -1,0 +1,9 @@
+{
+  "name": "admin-example",
+  "version": "0.0.1",
+  "description": "An Admin application template/example",
+  "main": "index.js",
+  "repository": "https://github.com/zen-experiments/admin-example.git",
+  "author": "Dmitry Nutels <dnutels@gmail.com>",
+  "license": "MIT"
+}
