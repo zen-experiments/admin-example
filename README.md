@@ -1,2 +1,3 @@
 # admin-example
-An Admin application template/example
+
+An Admin application boilerplate.

@@ -1,0 +1,9 @@
+{
+    "restartable": "rs",
+    "ignore": ["src/client/", "build/"],
+    "watch": ["lib/server/"],
+    "execMap": {
+        "js": "node --harmony"
+    },
+    "ext": "js json"
+}

@@ -1,0 +1,21 @@
+{
+    "presets": [
+        ["env", {
+            "targets": {
+                "node": "current",
+                "browsers": [
+                    "last 1 Chrome versions"
+                ]
+            },
+            "loose": true,
+            "modules": false,
+            "debug": true
+        }],
+        "react"
+    ],
+    "plugins": [
+        "syntax-dynamic-import",
+        "transform-class-properties",
+        "react-hot-loader/babel"
+    ]
+}
