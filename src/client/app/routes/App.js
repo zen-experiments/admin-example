@@ -3,13 +3,13 @@
 import React, {Component} from 'react';
 import {Switch, Route, Link} from 'react-router-dom';
 
-import Dashboard from './routes/Dashboard';
-import NoMatch from './routes/NoMatch';
+import Dashboard from './Dashboard';
+import NoMatch from './NoMatch';
 
-import {lazy} from './utils/lazy';
+import {lazy} from '../utils/lazy';
 
 function lazyLoad(name) {
-    return lazy(() => import(`./routes/${name}`));
+    return lazy(() => import(`./${name}`));
 }
 
 export default class App extends Component {

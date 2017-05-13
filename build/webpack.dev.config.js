@@ -21,13 +21,16 @@ const PUBLIC_DIR_PATH = PATH.resolve(__dirname, ROOT, 'dist/public/');
 const config = {
     devtool: 'source-map',
     cache: true,
-    entry: [
-        'react-hot-loader/patch',
-        'webpack/hot/only-dev-server',
-        INDEX_JS_FILE
-    ],
+    entry: {
+        app: [
+            // 'react-hot-loader/patch',
+            // 'webpack/hot/only-dev-server',
+            INDEX_JS_FILE
+        ]
+    },
     output: {
-        filename: `${JS_ASSETS_DIR}app.js`, // hack for WDS
+        filename: `${JS_ASSETS_DIR}[name].js`, // hack for WDS
+        chunkFilename: `${JS_ASSETS_DIR}[id][name].js`, // hack for WDS
         path: PUBLIC_DIR_PATH,
         publicPath: WEBPACK_PUBLIC_DIR
     },
@@ -59,8 +62,9 @@ const config = {
             timings: false,
             version: true
         },
-        hot: true,
-        overlay: true,
+        // hot: true,
+        // noInfo: true,
+        clientLogLevel: 'error',
         contentBase: PUBLIC_DIR_PATH,
         publicPath: WEBPACK_PUBLIC_DIR,
         compress: true,
@@ -73,10 +77,9 @@ const config = {
         watchContentBase: true
     },
     plugins: [
-        // new WriteFilePlugin({
-        //     test: /\.html$/,
-        //     log: false
-        // }),
+        new WriteFilePlugin({
+            log: false
+        }),
         new HtmlWebpackPlugin({
             hash: false,
             filename: 'index.html',
@@ -85,7 +88,7 @@ const config = {
             template: INDEX_HTML_FILE
         }),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.NamedModulesPlugin()
     ],

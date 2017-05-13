@@ -4,11 +4,14 @@ import React, {Component} from 'react';
 
 function lazy(load) {
     return class Async extends Component {
-        static Comp = null;
+        static get Comp() {
+            return null;
+        }
 
-        state = {
-            Comp: Async.Comp
-        };
+        constructor(props, context) {
+            super(props, context);
+            this.state = {Comp: Async.Comp};
+        }
 
         componentWillMount() {
             const {Comp} = this.state;
